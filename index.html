@@ -1,7 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Snake Game</title></head>
-    <canvas id="gameCanvas" width="608" height="608"></canvas>
-    <pre id="score">score:</pre>  
-    <script src="script.js"></script>
+  <head>
+    <title>Snake Game</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 20px;
+      background-image: linear-gradient(
+        to right top,
+        #051937,
+        #004d7a,
+        #008793,
+        #00bf72,
+        #a8eb12
+      );
+      height: 100vh;
+      width: 100vw;
+    }
+    main {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <main>
+      <canvas id="gameCanvas" width="608" height="608"></canvas>
+      <pre id="score" class="blockquote text-white">score:</pre>
+      <button
+        onclick="window.location.reload()"
+        type="button"
+        class="btn btn-primary"
+      >
+        Reset Game!
+      </button>
+      <script src="script.js"></script>
+    </main>
+  </body>
 </html>
