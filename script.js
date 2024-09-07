@@ -3,7 +3,6 @@ ctx = canvas.getContext("2d");
 canvas.style.backgroundColor = "black";
 var foodAudio = new Audio("./audios/food.mp3");
 var gameOverAudio = new Audio("./audios/game-over.mp3");
-var isGameOver = false;
 var d = "UP";
 var box = 32;
 var score = 0;
@@ -18,8 +17,8 @@ var frameRate = 200;
 function collision(newHead, snake) {
   for (var i = 0; i < snake.length; ++i) {
     if (newHead.x == snake[i].x && newHead.y == snake[i].y) {
-      if (!isGameOver) gameOverAudio.play();
-      isGameOver = true;
+      if (gameOverAudio) gameOverAudio.play();
+      gameOverAudio = null;
       document.getElementById("score").innerHTML =
         "Game OVER " + "Your Score is: " + score.toString();
       return true;
@@ -77,33 +76,32 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (var i = 0; i < snake.length; ++i) {
     if (snake[0].x < 0) {
-      if (!isGameOver) gameOverAudio.play();
-      isGameOver = true;
+      if (gameOverAudio) gameOverAudio.play();
+      gameOverAudio = null;
       document.getElementById("score").innerHTML =
         "Game OVER " + "Your Score is: " + score.toString();
       return;
     }
 
     if (snake[0].x > canvas.width) {
-      if (!isGameOver) gameOverAudio.play();
-      isGameOver = true;
+      if (gameOverAudio) gameOverAudio.play();
+      gameOverAudio = null;
       document.getElementById("score").innerHTML =
         "Game OVER " + "Your Score is: " + score.toString();
       return;
     }
 
     if (snake[0].y < 0) {
-      if (!isGameOver) gameOverAudio.play();
-      isGameOver = true;
+      if (gameOverAudio) gameOverAudio.play();
+      gameOverAudio = null;
       document.getElementById("score").innerHTML =
         "Game OVER " + "Your Score is: " + score.toString();
       return;
     }
 
     if (snake[0].y > canvas.height) {
-      if (!isGameOver) gameOverAudio.play();
-      isGameOver = true;
-      gameOverAudio.play();
+      if (gameOverAudio) gameOverAudio.play();
+      gameOverAudio = null;
       document.getElementById("score").innerHTML =
         "Game OVER " + "Your Score is: " + score.toString();
       return;
